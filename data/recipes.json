@@ -18,8 +18,8 @@
                 { "title": "Lemon (juice)", "qty": 0.5, "measurement": "item" },
                 { "title": "Kale", "qty": 150, "measurement": "g" }
             ],
-            serves: 4,
-            totalTime: 55,
+            "serves": 4,
+            "totalTime": 55,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/sticky-maple-chicken-traybake"
         },
         {
@@ -39,8 +39,8 @@
                 { "title": "Green beans", "qty": 150, "measurement": "g" },
                 { "title": "Natural yogurt", "qty": 100, "measurement": "g" },
             ],
-            serves: 2,
-            totalTime: 45,
+            "serves": 2,
+            "totalTime": 45,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/5-a-day-turmeric-traybake-chicken"
         },
         {
@@ -60,8 +60,8 @@
                 { "title": "Feta", "qty": 125, "measurement": "g" },
                 { "title": "Lemon (juice)", "qty": 2, "measurement": "tbsp" },
             ],
-            serves: 8,
-            totalTime: 130,
+            "serves": 8,
+            "totalTime": 130,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/jewelled-stuffed-butternut-squash"
         }
     ]
