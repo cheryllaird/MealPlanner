@@ -1,0 +1,68 @@
+{
+    "recipes": [
+        {
+            "title": "Sticky maple chicken traybake",
+            "img": "https://www.sainsburysmagazine.co.uk/uploads/media/675x882/05/10975-maple-chicken.jpg?v=1-0",
+            "ingredients": [
+                { "title": "Butternut squash", "qty": 800, "measurement": "g" },
+                { "title": "Parsnip", "qty": 3, "measurement": "item" },
+                { "title": "Red onion", "qty": 2, "measurement": "item" },
+                { "title": "Garlic clove", "qty": 3, "measurement": "item" },
+                { "title": "Rosemary", "qty": 2, "measurement": "tbsp" },
+                { "title": "Olive oil", "qty": 4, "measurement": "tbsp" },
+                { "title": "Chilli flakes", "qty": 0.5, "measurement": "tsp" },
+                { "title": "Chicken breast", "qty": 4, "measurement": "item" },
+                { "title": "Smoked bacon lardons", "qty": 160, "measurement": "g" },
+                { "title": "Maple syrup", "qty": 2, "measurement": "tbsp" },
+                { "title": "Wholegrain mustard", "qty": 2, "measurement": "tbsp" },
+                { "title": "Lemon (juice)", "qty": 0.5, "measurement": "item" },
+                { "title": "Kale", "qty": 150, "measurement": "g" }
+            ],
+            serves: 4,
+            totalTime: 55,
+            "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/sticky-maple-chicken-traybake"
+        },
+        {
+            "title": "5-a-day turmeric traybake chicken",
+            "img": "https://www.sainsburysmagazine.co.uk/uploads/media/675x882/01/11061-Turmeric-Chicken-3.jpg?v=1-0",
+            "ingredients": [
+                { "title": "Olive oil", "qty": 1.5, "measurement": "tbsp" },
+                { "title": "Ground turmeric", "qty": 1, "measurement": "tsp" },
+                { "title": "Ground coriander", "qty": 0.5, "measurement": "tsp" },
+                { "title": "Nigella seeds", "qty": 0.5, "measurement": "tsp" },
+                { "title": "Lime/Lemon (zest and juice)", "qty": 0.5, "measurement": "item" },
+                { "title": "Chicken breast", "qty": 2, "measurement": "item" },
+                { "title": "Cauliflower", "qty": 350, "measurement": "g" },
+                { "title": "Red onion", "qty": 1, "measurement": "item" },
+                { "title": "Chickpeas", "qty": 400, "measurement": "g" },
+                { "title": "Cherry tomatoes", "qty": 200, "measurement": "g" },
+                { "title": "Green beans", "qty": 150, "measurement": "g" },
+                { "title": "Natural yogurt", "qty": 100, "measurement": "g" },
+            ],
+            serves: 2,
+            totalTime: 45,
+            "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/5-a-day-turmeric-traybake-chicken"
+        },
+        {
+            "title": "Jewelled stuffed butternut squash",
+            "img": "https://www.sainsburysmagazine.co.uk/uploads/media/675x882/06/11056-SM1120_Get-stuffed_Stuffed-squash.jpg?v=1-0",
+            "ingredients": [
+                { "title": "Butternut squash", "qty": 1, "measurement": "item" },
+                { "title": "Olive oil", "qty": 2.5, "measurement": "tbsp" },
+                { "title": "Red onion", "qty": 1, "measurement": "item" },
+                { "title": "Garlic clove", "qty": 3, "measurement": "item" },
+                { "title": "Ground cinnamon", "qty": 1.5, "measurement": "tsp" },
+                { "title": "Baby leaf spinach", "qty": 100, "measurement": "g" },
+                { "title": "Cooked grains/rice", "qty": 250, "measurement": "g" },
+                { "title": "Pomegranate seeds", "qty": 80, "measurement": "g" },
+                { "title": "Pine nuts", "qty": 25, "measurement": "g" },
+                { "title": "Coriander", "qty": 30, "measurement": "g" },
+                { "title": "Feta", "qty": 125, "measurement": "g" },
+                { "title": "Lemon (juice)", "qty": 2, "measurement": "tbsp" },
+            ],
+            serves: 8,
+            totalTime: 130,
+            "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/jewelled-stuffed-butternut-squash"
+        }
+    ]
+}
