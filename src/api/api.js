@@ -13,3 +13,11 @@ export function addRecipe(recipe) {
         alert(error ? "Failed to save the data to the storage" : "Saved");
     });
 }
+
+export function addToMealPlan(sate, recipeId) {
+    const formattedDate = date.toISOString().split('T')[0];
+    const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
+    const updatedMealPlan = mealPlan.push();
+    // TODO error handling?
+    updatedMealPlan.set(recipe.id);
+}

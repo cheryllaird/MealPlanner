@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { firebase } from '../firebase/config';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { addToMealPlan } from "../api/api";
 import { STORAGE_KEYS, USER_ID } from "../consts";
 
 export function RecipeDetailScreen({ navigation, route }) {
@@ -20,13 +21,7 @@ export function RecipeDetailScreen({ navigation, route }) {
     async function onAddMeal(event, date = null) {
         setDatePickerVisibility(false);
         if (date === null) return;
-
-        const formattedDate = date.toISOString().split('T')[0];
-
-        const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
-        const updatedMealPlan = mealPlan.push();
-        // TODO error handling?
-        updatedMealPlan.set(recipe.id);
+        addToMealPlan(date, recipe.id);
     }
 
     function openModal() {
@@ -52,7 +47,6 @@ export function RecipeDetailScreen({ navigation, route }) {
                 />
             </View>
 
-
             {datePickerIsVisible && (
                 <DateTimePicker
                     testID="dateTimePicker"
@@ -64,7 +58,6 @@ export function RecipeDetailScreen({ navigation, route }) {
             )}
 
             <Button title="Add to menu" onPress={openModal} />
-
         </View>
     );
 };
