@@ -7,13 +7,30 @@ import {
     Button,
     Image,
     FlatList,
+    Modal,
 } from 'react-native';
+import { firebase } from '../firebase/config';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { STORAGE_KEYS, USER_ID } from "../consts";
 
 export function RecipeDetailScreen({ navigation, route }) {
     const { recipe } = route.params;
+    const [datePickerIsVisible, setDatePickerVisibility] = useState(false);
 
-    function onAddMeal() {
-        alert("NEW MEAL")
+    async function onAddMeal(event, date = null) {
+        setDatePickerVisibility(false);
+        if (date === null) return;
+
+        const formattedDate = date.toISOString().split('T')[0];
+
+        const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
+        const updatedMealPlan = mealPlan.push();
+        // TODO error handling?
+        updatedMealPlan.set(recipe.id);
+    }
+
+    function openModal() {
+        setDatePickerVisibility(true);
     }
 
     return (
@@ -34,7 +51,20 @@ export function RecipeDetailScreen({ navigation, route }) {
                     keyExtractor={item => item.title}
                 />
             </View>
-            <Button title="Add to menu" onPress={onAddMeal} />
+
+
+            {datePickerIsVisible && (
+                <DateTimePicker
+                    testID="dateTimePicker"
+                    value={new Date()}
+                    mode="date"
+                    display="default"
+                    onChange={onAddMeal}
+                />
+            )}
+
+            <Button title="Add to menu" onPress={openModal} />
+
         </View>
     );
 };

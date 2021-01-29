@@ -19,7 +19,7 @@
                 { "title": "Kale", "qty": 150, "measurement": "g" }
             ],
             "serves": 4,
-            "totalTime": 55,
+            "total-time": 55,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/sticky-maple-chicken-traybake"
         },
         {
@@ -37,10 +37,10 @@
                 { "title": "Chickpeas", "qty": 400, "measurement": "g" },
                 { "title": "Cherry tomatoes", "qty": 200, "measurement": "g" },
                 { "title": "Green beans", "qty": 150, "measurement": "g" },
-                { "title": "Natural yogurt", "qty": 100, "measurement": "g" },
+                { "title": "Natural yogurt", "qty": 100, "measurement": "g" }
             ],
             "serves": 2,
-            "totalTime": 45,
+            "total-time": 45,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/5-a-day-turmeric-traybake-chicken"
         },
         {
@@ -58,11 +58,39 @@
                 { "title": "Pine nuts", "qty": 25, "measurement": "g" },
                 { "title": "Coriander", "qty": 30, "measurement": "g" },
                 { "title": "Feta", "qty": 125, "measurement": "g" },
-                { "title": "Lemon (juice)", "qty": 2, "measurement": "tbsp" },
+                { "title": "Lemon (juice)", "qty": 2, "measurement": "tbsp" }
             ],
             "serves": 8,
-            "totalTime": 130,
+            "total-time": 130,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/jewelled-stuffed-butternut-squash"
+        },
+        {
+            "title": "Masala cauliflower and aduki bean curry",
+            "img": "https://www.sainsburysmagazine.co.uk/uploads/media/675x882/09/11249-Full_Of_Beans_Curry.jpg?v=1-0",
+            "ingredients": [
+                { "title": "Cauliflower", "qty": 1, "measurement": "item" },
+                { "title": "Garam masala", "qty": 3, "measurement": "tsp" },
+                { "title": "Ground turmeric", "qty": 1.5, "measurement": "tsp" },
+                { "title": "Ground cumin", "qty": 3, "measurement": "tsp" },
+                { "title": "Vegetable oil", "qty": 3, "measurement": "tbsp" },
+                { "title": "Onion", "qty": 1, "measurement": "item" },
+                { "title": "Root ginger", "qty": 25, "measurement": "g" },
+                { "title": "Garlic clove", "qty": 4, "measurement": "item" },
+                { "title": "Cardamom pods", "qty": 4, "measurement": "item" },
+                { "title": "Chilli powder", "qty": 1, "measurement": "tsp" },
+                { "title": "Ground Coriander", "qty": 1, "measurement": "tbsp" },
+                { "title": "Tomato purée", "qty": 1, "measurement": "tbsp" },
+                { "title": "Tinned aduki beans", "qty": 400, "measurement": "g" },
+                { "title": "Tinned chopped tomatoes", "qty": 800, "measurement": "g" },
+                { "title": "Vegetable stock", "qty": 300, "measurement": "ml" },
+                { "title": "Mango chutney", "qty": 2, "measurement": "tbsp" },
+                { "title": "Naan bread/Rice", "qty": 1, "measurement": "item" },
+                { "title": "Flaked almonds", "qty": 30, "measurement": "g" },
+                { "title": "Natural yogurt", "qty": 150, "measurement": "g" }
+            ],
+            "serves": 4,
+            "total-time": 55,
+            "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/masala-cauliflower-and-aduki-bean-curry"
         }
     ]
 }
