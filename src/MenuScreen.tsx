@@ -8,7 +8,7 @@ import {
 import { firebase } from "./firebase/config";
 import { useRecipes } from "./recipe/useRecipes";
 import { RecipeSummary } from "./recipe/RecipeSummary";
-import { STORAGE_KEYS, USER_ID } from "./consts";
+import { USER_ID } from "./consts";
 
 const styles = StyleSheet.create({
     heading: {
