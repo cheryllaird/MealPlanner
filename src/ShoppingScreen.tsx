@@ -1,9 +1,18 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     StyleSheet,
     View,
     Text,
-} from 'react-native';
+} from "react-native";
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: "center",
+        flex: 1,
+        justifyContent: "center",
+        padding: 20,
+    },
+});
 
 export function ShoppingScreen({ navigation }) {
     return (
@@ -11,13 +20,4 @@ export function ShoppingScreen({ navigation }) {
             <Text style={styles.text}>Coming soon</Text>
         </View>
     );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 20,
-    }
-});
+}

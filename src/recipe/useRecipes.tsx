@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { firebase } from '../firebase/config';
+import { useState, useEffect } from "react";
+import { firebase } from "../firebase/config";
 
-export function useRecipes() {
+export default function useRecipes() {
     const [recipes, setRecipes] = useState([]);
 
     function parseRecipesData(data) {
@@ -15,17 +15,16 @@ export function useRecipes() {
     useEffect(() => {
         const recipeListener = firebase.database()
             .ref("/recipes")
-            .on('value', data => {
+            .on("value", (data) => {
                 setRecipes(parseRecipesData(data.val()));
             });
 
-        return () =>
-            firebase.database()
-                .ref("/recipes")
-                .off('value', recipeListener);
+        return () => firebase.database()
+            .ref("/recipes")
+            .off("value", recipeListener);
     }, []);
 
     return {
-        recipes
+        recipes,
     };
 }

@@ -1,39 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
     StyleSheet,
     SectionList,
     Text,
     Button,
-} from 'react-native';
-import { firebase } from './firebase/config';
+} from "react-native";
+import { firebase } from "./firebase/config";
 import { useRecipes } from "./recipe/useRecipes";
 import { RecipeSummary } from "./recipe/RecipeSummary";
 import { STORAGE_KEYS, USER_ID } from "./consts";
+
+const styles = StyleSheet.create({
+    heading: {
+        alignItems: "center",
+        backgroundColor: "yellow",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 10,
+    },
+});
 
 export function MenuScreen({ navigation, route }) {
     const [mealPlan, setMealPlan] = useState([]);
     const { recipes } = useRecipes();
 
     function parseMealPlanData(data) {
-        return Object.entries(data).map(([date, meals]) => ({ title: date, data: Object.values(meals) }));
+        return Object.entries(data).map(([date, meals]) => ({
+            title: date,
+            data: Object.values(meals),
+        }));
     }
 
     useEffect(() => {
         const onValueChange = firebase.database()
             .ref(`/users/${USER_ID}/meal-plan`)
             .orderByKey()
-            .on('value', data => {
+            .on("value", (data) => {
                 setMealPlan(parseMealPlanData(data.val()));
             });
 
-        return () =>
-            firebase.database()
-                .ref(`/users/${USER_ID}/meal-plan`)
-                .off('value', onValueChange);
+        return () => firebase.database()
+            .ref(`/users/${USER_ID}/meal-plan`)
+            .off("value", onValueChange);
     }, []);
 
     function onAddMeal() {
-        alert("NEW MEAL")
+        alert("NEW MEAL");
     }
 
     return (
@@ -50,14 +62,4 @@ export function MenuScreen({ navigation, route }) {
             <Button title="Add meal" onPress={onAddMeal} />
         </>
     );
-};
-
-const styles = StyleSheet.create({
-    heading: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: "yellow",
-        padding: 10,
-    },
-});
+}
