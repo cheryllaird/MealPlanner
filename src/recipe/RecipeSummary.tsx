@@ -7,6 +7,7 @@ import {
     Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Recipe } from "../interfaces/Recipes";
 
 const styles = StyleSheet.create({
     container: {
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RecipeSummary({ recipe }): React.ReactElement {
+export function RecipeSummary({ recipe }: { recipe: Recipe }): React.ReactElement {
     const navigation = useNavigation();
 
     function navigateToPage() {

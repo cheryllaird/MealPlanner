@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { firebase } from "../firebase/config";
+import { Recipe, RecipeList, RecipeData } from "../interfaces/Recipes";
 
-export default function useRecipes() {
-    const [recipes, setRecipes] = useState([]);
+export function useRecipes(): { recipes: RecipeList } {
+    const [recipes, setRecipes] = useState({});
 
-    function parseRecipesData(data) {
-        const parsedRecipes = {};
+    function parseRecipesData(data: RecipeData) {
+        const parsedRecipes: RecipeList = {};
         Object.entries(data).forEach(([key, value]) => {
             parsedRecipes[key] = value;
         });

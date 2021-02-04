@@ -1,8 +1,9 @@
 import { firebase } from "../firebase/config";
 import data from "../../data/recipes.json";
+import { Recipe } from "../interfaces/Recipes";
 import { USER_ID } from "../consts";
 
-export function addRecipe(recipe) {
+export function addRecipe(recipe: Recipe): void {
     const recipes = firebase.database().ref("/recipes");
     const updatedRecipes = recipes.push();
     updatedRecipes.set(recipe).then(() => {
@@ -10,12 +11,12 @@ export function addRecipe(recipe) {
     });
 }
 
-export function resetTestData() {
+export function resetTestData(): void {
     firebase.database().ref("/recipes").remove();
     data.recipes.forEach(addRecipe);
 }
 
-export function addToMealPlan(date, recipeId) {
+export function addToMealPlan(date: Date, recipeId: string): void {
     const formattedDate = date.toISOString().split("T")[0];
     const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
     const updatedMealPlan = mealPlan.push();
