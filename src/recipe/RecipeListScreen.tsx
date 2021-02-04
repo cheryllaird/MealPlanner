@@ -5,7 +5,7 @@ import {
 import { RecipeSummary } from "./RecipeSummary";
 import { useRecipes } from "./useRecipes";
 
-export function RecipeListScreen({ navigation }) {
+export function RecipeListScreen(): React.ReactElement {
     const { recipes } = useRecipes();
 
     return (

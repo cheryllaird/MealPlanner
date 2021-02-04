@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RecipeSummary({ recipe }) {
+export function RecipeSummary({ recipe }): React.ReactElement {
     const navigation = useNavigation();
 
     function navigateToPage() {

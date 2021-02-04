@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RecipeDetailScreen({ navigation, route }) {
+export function RecipeDetailScreen({ route }): React.ReactElement {
     const { recipe } = route.params;
     const [datePickerIsVisible, setDatePickerVisibility] = useState(false);
 

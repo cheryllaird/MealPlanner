@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function MenuScreen({ navigation, route }) {
+export function MenuScreen(): React.ReactElement {
     const [mealPlan, setMealPlan] = useState([]);
     const { recipes } = useRecipes();
 

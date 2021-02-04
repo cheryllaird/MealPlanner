@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     },
 });
 
-export function ShoppingScreen({ navigation }) {
+export function ShoppingScreen(): React.ReactElement {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Coming soon</Text>
+            <Text>Coming soon</Text>
         </View>
     );
 }

@@ -5,7 +5,7 @@ import { RecipeDetailScreen } from "./recipe/RecipeDetailScreen";
 
 const Stack = createStackNavigator();
 
-export function RecipesScreen({ navigation }) {
+export function RecipesScreen(): React.ReactElement {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Recipe List" component={RecipeListScreen} options={{ headerShown: false }} />
