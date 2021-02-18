@@ -2,8 +2,9 @@ import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RecipeListScreen } from "./recipe/RecipeListScreen";
 import { RecipeDetailScreen } from "./recipe/RecipeDetailScreen";
+import { RecipeRootStackParamList } from "./interfaces/Navigation";
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RecipeRootStackParamList>();
 
 export function RecipesScreen(): React.ReactElement {
     return (

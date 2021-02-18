@@ -7,8 +7,10 @@ import {
     Image,
     FlatList,
 } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { RouteProp } from "@react-navigation/native";
+import DateTimePicker, { Event } from "@react-native-community/datetimepicker";
 import { addToMealPlan } from "../api/api";
+import { RecipeRootStackParamList } from "../interfaces/Navigation";
 
 const styles = StyleSheet.create({
     container: {
@@ -39,11 +41,20 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RecipeDetailScreen({ route }): React.ReactElement {
+type RecipeDetailScreenRouteProp = RouteProp<
+    RecipeRootStackParamList,
+    "Recipe Detail"
+>;
+
+type Props = {
+    route: RecipeDetailScreenRouteProp;
+};
+
+export function RecipeDetailScreen({ route }: Props): React.ReactElement {
     const { recipe } = route.params;
     const [datePickerIsVisible, setDatePickerVisibility] = useState(false);
 
-    async function onAddMeal(event, date = null) {
+    function onAddMeal(event: Event, date: Date | null = null): void {
         setDatePickerVisibility(false);
         if (date === null) return;
         addToMealPlan(date, recipe.id);

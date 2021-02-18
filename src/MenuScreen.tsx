@@ -8,6 +8,7 @@ import {
 import { firebase } from "./firebase/config";
 import { useRecipes } from "./recipe/useRecipes";
 import { RecipeSummary } from "./recipe/RecipeSummary";
+import { Recipe } from "./interfaces/Recipes";
 import { USER_ID } from "./consts";
 
 const styles = StyleSheet.create({
@@ -20,14 +21,25 @@ const styles = StyleSheet.create({
     },
 });
 
+interface MealPlanData {
+    [key: string]: {
+        [key: string]: string
+    }
+}
+
+interface MealPlanEntry {
+    title: string,
+    data: string[],
+}
+
 export function MenuScreen(): React.ReactElement {
     const [mealPlan, setMealPlan] = useState([]);
     const { recipes } = useRecipes();
 
-    function parseMealPlanData(data) {
-        return Object.entries(data).map(([date, meals]) => ({
+    function parseMealPlanData(data: MealPlanData): MealPlanEntry[] {
+        return Object.entries(data).map(([date, recipesData]) => ({
             title: date,
-            data: Object.values(meals),
+            data: Object.values(recipesData),
         }));
     }
 
@@ -36,7 +48,10 @@ export function MenuScreen(): React.ReactElement {
             .ref(`/users/${USER_ID}/meal-plan`)
             .orderByKey()
             .on("value", (data) => {
-                setMealPlan(parseMealPlanData(data.val()));
+                const d = parseMealPlanData(data.val());
+                console.log("d", d);
+
+                setMealPlan(d);
             });
 
         return () => firebase.database()
