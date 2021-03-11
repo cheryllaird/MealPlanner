@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { firebase } from "../firebase/config";
-import { Recipe, RecipeList, RecipeData } from "../interfaces/Recipes";
+import { RecipeList, RecipeData } from "../interfaces/Recipes";
 
 export function useRecipes(): { recipes: RecipeList } {
-    const [recipes, setRecipes] = useState({});
+    const [recipes, setRecipes] = useState<RecipeList>({});
 
     function parseRecipesData(data: RecipeData) {
         const parsedRecipes: RecipeList = {};

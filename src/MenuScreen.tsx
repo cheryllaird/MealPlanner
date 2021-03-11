@@ -28,12 +28,12 @@ interface MealPlanData {
 }
 
 interface MealPlanEntry {
-    title: string,
-    data: string[],
+    title: string;
+    data: string[];
 }
 
 export function MenuScreen(): React.ReactElement {
-    const [mealPlan, setMealPlan] = useState([]);
+    const [mealPlan, setMealPlan] = useState<MealPlanEntry[]>([]);
     const { recipes } = useRecipes();
 
     function parseMealPlanData(data: MealPlanData): MealPlanEntry[] {
@@ -49,8 +49,6 @@ export function MenuScreen(): React.ReactElement {
             .orderByKey()
             .on("value", (data) => {
                 const d = parseMealPlanData(data.val());
-                console.log("d", d);
-
                 setMealPlan(d);
             });
 
@@ -69,8 +67,8 @@ export function MenuScreen(): React.ReactElement {
                 sections={mealPlan}
                 keyExtractor={(item, index) => item + index}
                 renderItem={({ item }) => <RecipeSummary recipe={recipes[item]} />}
-                renderSectionHeader={({ section: { date } }) => (
-                    <Text style={styles.heading}>{date}</Text>
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text style={styles.heading}>{title}</Text>
                 )}
             />
 

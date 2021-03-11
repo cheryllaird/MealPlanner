@@ -57,6 +57,7 @@ export function RecipeDetailScreen({ route }: Props): React.ReactElement {
     function onAddMeal(event: Event, date: Date | null = null): void {
         setDatePickerVisibility(false);
         if (date === null) return;
+        if (!recipe.id) return;
         addToMealPlan(date, recipe.id);
     }
 
