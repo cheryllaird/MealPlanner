@@ -19,7 +19,7 @@
                 { "title": "Kale", "qty": 150, "measurement": "g" }
             ],
             "serves": 4,
-            "total-time": 55,
+            "totalTime": 55,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/sticky-maple-chicken-traybake"
         },
         {
@@ -40,7 +40,7 @@
                 { "title": "Natural yogurt", "qty": 100, "measurement": "g" }
             ],
             "serves": 2,
-            "total-time": 45,
+            "totalTime": 45,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/5-a-day-turmeric-traybake-chicken"
         },
         {
@@ -61,7 +61,7 @@
                 { "title": "Lemon (juice)", "qty": 2, "measurement": "tbsp" }
             ],
             "serves": 8,
-            "total-time": 130,
+            "totalTime": 130,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/jewelled-stuffed-butternut-squash"
         },
         {
@@ -89,7 +89,7 @@
                 { "title": "Natural yogurt", "qty": 150, "measurement": "g" }
             ],
             "serves": 4,
-            "total-time": 55,
+            "totalTime": 55,
             "link": "https://www.sainsburysmagazine.co.uk/recipes/mains/masala-cauliflower-and-aduki-bean-curry"
         }
     ]

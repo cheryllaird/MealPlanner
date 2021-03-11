@@ -3,6 +3,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
+    Platform,
     NativeModules,
     StyleSheet,
     SafeAreaView,
@@ -19,16 +20,17 @@ import { RecipesScreen } from "./src/RecipesScreen";
 // resetTestData();
 
 const Tab = createBottomTabNavigator();
+
 export default function App() {
     return (
         <SafeAreaView style={styles.safeAreaView}>
             <StatusBar style="dark" />
 
             <NavigationContainer
-                linking={{}}
+                linking={undefined}
                 fallback={<Text>Loading...</Text>}
             >
-                <Tab.Navigator>
+                <Tab.Navigator initialRouteName={PAGES.RECIPES}>
                     <Tab.Screen name={PAGES.RECIPES} component={RecipesScreen} options={{
                         tabBarIcon: ({ color, size }) => (
                             <Icon name="pizza-slice" color={color} size={size} />
@@ -54,7 +56,6 @@ export default function App() {
 const styles = StyleSheet.create({
     safeAreaView: {
         flex: 1,
-        // backgroundColor: "blue",
         paddingTop: Platform.OS === 'android' ? NativeModules.StatusBarManager.HEIGHT : 0
     },
 });

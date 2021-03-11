@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import {
     FlatList,
-} from 'react-native';
+} from "react-native";
 import { RecipeSummary } from "./RecipeSummary";
 import { useRecipes } from "./useRecipes";
 
-export function RecipeListScreen({ navigation }) {
+export function RecipeListScreen(): React.ReactElement {
     const { recipes } = useRecipes();
+    const recipesWithId = Object.keys(recipes).map((id) => ({ ...recipes[id], id }));
 
     return (
         <FlatList
-            data={Object.values(recipes)}
+            data={recipesWithId}
             renderItem={({ item }) => <RecipeSummary recipe={item} />}
-            keyExtractor={item => item.title}
+            keyExtractor={(item) => item.title}
         />
     );
-};
+}

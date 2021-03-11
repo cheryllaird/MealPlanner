@@ -1,26 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
     StyleSheet,
     Text,
-    TextInput,
     View,
     Button,
     Image,
     FlatList,
-    Modal,
-} from 'react-native';
-import { firebase } from '../firebase/config';
-import DateTimePicker from '@react-native-community/datetimepicker';
+} from "react-native";
+import { RouteProp } from "@react-navigation/native";
+import DateTimePicker, { Event } from "@react-native-community/datetimepicker";
 import { addToMealPlan } from "../api/api";
-import { STORAGE_KEYS, USER_ID } from "../consts";
+import { RecipeRootStackParamList } from "../interfaces/Navigation";
 
-export function RecipeDetailScreen({ navigation, route }) {
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    content: {
+        flex: 1,
+        padding: 5,
+    },
+    image: {
+        height: 100,
+        width: "100%",
+    },
+    listHeader: {
+        fontWeight: "bold",
+        marginBottom: 5,
+        marginTop: 15,
+    },
+    serves: {
+        opacity: 0.7,
+    },
+    time: {
+        opacity: 0.7,
+    },
+    title: {
+        fontSize: 20,
+        marginBottom: 5,
+    },
+});
+
+type RecipeDetailScreenRouteProp = RouteProp<
+    RecipeRootStackParamList,
+    "Recipe Detail"
+>;
+
+type Props = {
+    route: RecipeDetailScreenRouteProp;
+};
+
+export function RecipeDetailScreen({ route }: Props): React.ReactElement {
     const { recipe } = route.params;
     const [datePickerIsVisible, setDatePickerVisibility] = useState(false);
 
-    async function onAddMeal(event, date = null) {
+    function onAddMeal(event: Event, date: Date | null = null): void {
         setDatePickerVisibility(false);
         if (date === null) return;
+        if (!recipe.id) return;
         addToMealPlan(date, recipe.id);
     }
 
@@ -36,14 +73,29 @@ export function RecipeDetailScreen({ navigation, route }) {
             />
             <View style={styles.content}>
                 <Text style={styles.title}>{recipe.title}</Text>
-                <Text style={styles.serves}>{recipe.serves} people</Text>
-                <Text style={styles.time}>{recipe.totalTime} minutes</Text>
+                <Text style={styles.serves}>
+                    {recipe.serves}
+                    {" "}
+                    people
+                </Text>
+                <Text style={styles.time}>
+                    {recipe.totalTime}
+                    {" "}
+                    minutes
+                </Text>
 
                 <FlatList
                     data={recipe.ingredients}
                     ListHeaderComponent={() => <Text style={styles.listHeader}>Ingredients</Text>}
-                    renderItem={({ item }) => <Text>{item.qty}{item.measurement === "item" ? "x" : item.measurement} {item.title}</Text>}
-                    keyExtractor={item => item.title}
+                    renderItem={({ item }) => (
+                        <Text>
+                            {item.qty}
+                            {item.measurement === "item" ? "x" : item.measurement}
+                            {" "}
+                            {item.title}
+                        </Text>
+                    )}
+                    keyExtractor={(item) => item.title}
                 />
             </View>
 
@@ -60,33 +112,4 @@ export function RecipeDetailScreen({ navigation, route }) {
             <Button title="Add to menu" onPress={openModal} />
         </View>
     );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    image: {
-        width: "100%",
-        height: 100,
-    },
-    content: {
-        padding: 5,
-        flex: 1,
-    },
-    title: {
-        fontSize: 20,
-        marginBottom: 5,
-    },
-    serves: {
-        opacity: 0.7,
-    },
-    time: {
-        opacity: 0.7,
-    },
-    listHeader: {
-        marginTop: 15,
-        marginBottom: 5,
-        fontWeight: "bold"
-    },
-});
+}
