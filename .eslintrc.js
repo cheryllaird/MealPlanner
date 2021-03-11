@@ -40,6 +40,7 @@ module.exports = {
         "react/jsx-filename-extension": [2, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
         "react/prop-types": "off",
         "no-use-before-define": "off",
+        "linebreak-style": ["error", "windows"],
         "@typescript-eslint/no-use-before-define": ["error"],
     },
 };
