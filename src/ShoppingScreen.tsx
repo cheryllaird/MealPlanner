@@ -8,21 +8,21 @@ import {
 
 const styles = StyleSheet.create({
     image: {
-        width: 250,
         height: 250,
         maxWidth: "100%",
+        width: 250,
     },
     placeholder: {
+        alignItems: "center",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
     },
     placeholderText: {
-        fontSize: 16,
         color: "grey",
+        fontSize: 16,
         marginBottom: 40,
-    }
+    },
 });
 
 export function ShoppingScreen(): React.ReactElement {

@@ -22,21 +22,21 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     image: {
-        width: 250,
         height: 250,
         maxWidth: "100%",
+        width: 250,
     },
     placeholder: {
+        alignItems: "center",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
     },
     placeholderText: {
-        fontSize: 16,
         color: "grey",
+        fontSize: 16,
         marginBottom: 40,
-    }
+    },
 });
 
 interface MealPlanData {
@@ -92,7 +92,7 @@ export function MenuScreen(): React.ReactElement {
 
                 <Button title="Browse recipes" onPress={() => navigation.navigate("Recipes")} />
             </View>
-        )
+        );
     }
 
     return (
