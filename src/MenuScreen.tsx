@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {
     StyleSheet,
-    View,
     SectionList,
     Text,
     Button,
-    Image,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { firebase } from "./firebase/config";
 import { useRecipes } from "./recipe/useRecipes";
 import { RecipeSummary } from "./recipe/RecipeSummary";
+import { Placeholder } from "./components/Placeholder";
 import { USER_ID } from "./consts";
 
 const styles = StyleSheet.create({
@@ -20,22 +18,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         padding: 10,
-    },
-    image: {
-        height: 250,
-        maxWidth: "100%",
-        width: 250,
-    },
-    placeholder: {
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-    },
-    placeholderText: {
-        color: "grey",
-        fontSize: 16,
-        marginBottom: 40,
     },
 });
 
@@ -81,17 +63,12 @@ export function MenuScreen(): React.ReactElement {
     }
 
     if (!mealPlan.length) {
-        const navigation = useNavigation();
         return (
-            <View style={styles.placeholder}>
-                <Image
-                    style={styles.image}
-                    source={require("../assets/ramen.png")}
-                />
-                <Text style={styles.placeholderText}>Uhoo, looks like we are ordering a takeaway.</Text>
-
-                <Button title="Browse recipes" onPress={() => navigation.navigate("Recipes")} />
-            </View>
+            <Placeholder
+                image={require("../assets/ramen.png")}
+                message="Uhoo, looks like we are ordering a takeaway."
+                cta={{ text: "Browse recipes", route: "Recipes" }}
+            />
         );
     }
 
