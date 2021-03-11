@@ -8,7 +8,6 @@ import {
 import { firebase } from "./firebase/config";
 import { useRecipes } from "./recipe/useRecipes";
 import { RecipeSummary } from "./recipe/RecipeSummary";
-import { Recipe } from "./interfaces/Recipes";
 import { USER_ID } from "./consts";
 
 const styles = StyleSheet.create({

@@ -12,10 +12,6 @@ export interface RecipeList {
     [key: string]: Recipe
 }
 
-export interface RecipeData {
-
-}
-
 interface Ingredient {
     title: string;
     qty: number;

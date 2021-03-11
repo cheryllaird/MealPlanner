@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import "@firebase/auth";
-import "@firebase/database";
+import "@firebase/auth"; // eslint-disable-line import/no-extraneous-dependencies
+import "@firebase/database"; // eslint-disable-line import/no-extraneous-dependencies
 
 const firebaseConfig = {
     apiKey: "AIzaSyCE2R4TUFhjSC99hy-MZLlDnSRtjPLFRgo",
