@@ -3,21 +3,36 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
 } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
+    image: {
+        height: 250,
+        maxWidth: "100%",
+        width: 250,
+    },
+    placeholder: {
         alignItems: "center",
-        flex: 1,
+        display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
-        padding: 20,
+    },
+    placeholderText: {
+        color: "grey",
+        fontSize: 16,
+        marginBottom: 40,
     },
 });
 
 export function ShoppingScreen(): React.ReactElement {
     return (
-        <View style={styles.container}>
-            <Text>Coming soon</Text>
+        <View style={styles.placeholder}>
+            <Image
+                style={styles.image}
+                source={require("../assets/shopping.png")}
+            />
+            <Text style={styles.placeholderText}>Just running to the shops...</Text>
         </View>
     );
 }
