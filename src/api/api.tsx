@@ -20,6 +20,8 @@ export function addToMealPlan(date: Date, recipeId: string): void {
     const formattedDate = date.toISOString().split("T")[0];
     const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
     const updatedMealPlan = mealPlan.push();
-    // TODO error handling?
-    updatedMealPlan.set(recipeId);
+    firebase.database().ref(`/recipes/${recipeId}`).once("value", (recipeData) => {
+        // TODO error handling?
+        updatedMealPlan.set(recipeData.val());
+    });
 }

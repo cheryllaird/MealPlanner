@@ -6,3 +6,10 @@ export type RecipeRootStackParamList = {
         recipe: Recipe
     };
 };
+
+export type MealPlanRootStackParamList = {
+    "Meal Plan": undefined;
+    "Recipe Detail": {
+        recipe: Recipe
+    };
+};

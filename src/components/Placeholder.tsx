@@ -5,6 +5,7 @@ import {
     Text,
     Button,
     Image,
+    ImageSourcePropType,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../theme";
@@ -29,9 +30,9 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-    image: string;
+    image?: ImageSourcePropType;
     message: string;
-    cta: {
+    cta?: {
         text: string;
         route: string;
     };
@@ -41,7 +42,10 @@ export function Placeholder({ image, message, cta }: Props): React.ReactElement 
     const navigation = useNavigation();
     return (
         <View style={styles.placeholder}>
-            <Image style={styles.image} source={image} />
+            {image && (
+                <Image style={styles.image} source={image} />
+            )}
+
             <Text style={styles.message}>{message}</Text>
 
             {cta && (

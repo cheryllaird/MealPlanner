@@ -41,16 +41,16 @@ const styles = StyleSheet.create({
     },
 });
 
-type RecipeDetailScreenRouteProp = RouteProp<
+type RecipeDetailRouteProp = RouteProp<
     RecipeRootStackParamList,
     "Recipe Detail"
 >;
 
 type Props = {
-    route: RecipeDetailScreenRouteProp;
+    route: RecipeDetailRouteProp;
 };
 
-export function RecipeDetailScreen({ route }: Props): React.ReactElement {
+export function RecipeDetail({ route }: Props): React.ReactElement {
     const { recipe } = route.params;
     const [datePickerIsVisible, setDatePickerVisibility] = useState(false);
 

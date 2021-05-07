@@ -8,11 +8,12 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Recipe } from "../interfaces/Recipes";
+import { theme } from "../theme";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#FFFFFF",
-        borderColor: "#E0E0E0",
+        backgroundColor: theme.BACKGROUND,
+        borderColor: theme.BORDER,
         borderWidth: StyleSheet.hairlineWidth,
         flexDirection: "row",
         padding: 5,
