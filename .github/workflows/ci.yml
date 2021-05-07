@@ -16,7 +16,7 @@ jobs:
       run: yarn install
 
     - name: TypeScript
-      uses: yarn tsc
+      run: yarn tsc
 
     - name: ESLint
-      uses: yarn lint
+      run: yarn lint
