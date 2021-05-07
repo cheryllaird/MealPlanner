@@ -2,6 +2,7 @@ import React from "react";
 import {
     FlatList,
 } from "react-native";
+import searchImage from "../../assets/search.png";
 import { Placeholder } from "../components/Placeholder";
 import { RecipeSummary } from "./RecipeSummary";
 import { useRecipes } from "./useRecipes";
@@ -31,7 +32,7 @@ export function RecipeList(): React.ReactElement {
     if (!Object.keys(recipes).length) {
         return (
             <Placeholder
-                image={require("../../assets/search.png")}
+                image={searchImage}
                 message="Oops, it is looking a little empty here."
             />
         );

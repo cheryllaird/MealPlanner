@@ -2,7 +2,13 @@ import { useState, useEffect } from "react";
 import { firebase } from "../firebase/config";
 import { RecipeList } from "../interfaces/Recipes";
 
-export function useRecipes(): { recipes: RecipeList } {
+interface ReturnTypes {
+    recipes: RecipeList,
+    isLoading: boolean,
+    hasErrored: boolean,
+}
+
+export function useRecipes(): ReturnTypes {
     const [recipes, setRecipes] = useState<RecipeList>({});
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [hasErrored, setHasErrored] = useState<boolean>(false);
