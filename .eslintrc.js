@@ -41,7 +41,7 @@ module.exports = {
         "react/prop-types": "off",
         "react/require-default-props": "off",
         "no-use-before-define": "off",
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": ["off", "windows"],
         "@typescript-eslint/no-use-before-define": ["error"],
     },
 };
