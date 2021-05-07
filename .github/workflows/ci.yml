@@ -1,0 +1,24 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  tsc:
+    name: MealPlanner CI
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Node v14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+
+    - name: yarn install
+      run: yarn install
+
+    - name: TypeScript
+      uses: yarn tsc
+
+    - name: ESLint
+      uses: yarn lint
