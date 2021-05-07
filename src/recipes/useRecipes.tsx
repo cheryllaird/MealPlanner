@@ -4,6 +4,8 @@ import { RecipeList } from "../interfaces/Recipes";
 
 export function useRecipes(): { recipes: RecipeList } {
     const [recipes, setRecipes] = useState<RecipeList>({});
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [hasErrored, setHasErrored] = useState<boolean>(false);
 
     function parseRecipesData(data: RecipeList | null = null): RecipeList {
         if (data === null) return {};
@@ -16,10 +18,15 @@ export function useRecipes(): { recipes: RecipeList } {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         const recipeListener = firebase.database()
             .ref("/recipes")
             .on("value", (data) => {
                 setRecipes(parseRecipesData(data.val()));
+                setIsLoading(false);
+            }, () => {
+                setHasErrored(true);
+                setIsLoading(false);
             });
 
         return () => firebase.database()
@@ -29,5 +36,7 @@ export function useRecipes(): { recipes: RecipeList } {
 
     return {
         recipes,
+        isLoading,
+        hasErrored,
     };
 }

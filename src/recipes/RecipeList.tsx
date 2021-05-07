@@ -6,8 +6,27 @@ import { Placeholder } from "../components/Placeholder";
 import { RecipeSummary } from "./RecipeSummary";
 import { useRecipes } from "./useRecipes";
 
-export function RecipeListScreen(): React.ReactElement {
-    const { recipes } = useRecipes();
+export function RecipeList(): React.ReactElement {
+    const {
+        recipes,
+        isLoading,
+        hasErrored,
+    } = useRecipes();
+
+    if (isLoading) {
+        return (
+            <Placeholder
+                message="Loading"
+            />
+        );
+    }
+    if (hasErrored) {
+        return (
+            <Placeholder
+                message="Oops, something went wrong."
+            />
+        );
+    }
 
     if (!Object.keys(recipes).length) {
         return (

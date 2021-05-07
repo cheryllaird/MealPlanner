@@ -12,7 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { PAGES } from "./src/consts";
 import { StatusBar } from 'expo-status-bar';
-import { MenuScreen } from "./src/MenuScreen";
+import { MenuScreen } from "./src/MealPlanScreen";
 import { ShoppingScreen } from "./src/ShoppingScreen";
 import { RecipesScreen } from "./src/RecipesScreen";
 
