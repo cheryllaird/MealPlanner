@@ -13,3 +13,8 @@ export type MealPlanRootStackParamList = {
         recipe: Recipe
     };
 };
+export type MealPlanWeekStackParamList = {
+    "This Week": undefined;
+    "Upcoming": undefined
+    "Past": undefined
+};
