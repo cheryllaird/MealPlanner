@@ -9,7 +9,7 @@ const Stack = createStackNavigator<RecipeRootStackParamList>();
 export function RecipesScreen(): React.ReactElement {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Recipe List" component={RecipeList} options={{ headerShown: false }} />
+            <Stack.Screen name="Recipes" component={RecipeList} options={{ headerShown: false }} />
             <Stack.Screen name="Recipe Detail" component={RecipeDetail} />
         </Stack.Navigator>
     );

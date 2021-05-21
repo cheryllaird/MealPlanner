@@ -19,7 +19,7 @@ interface ReturnTypes {
     mealPlan: MealPlanEntry[],
 }
 
-export function useMealPlan(constraint): ReturnTypes {
+export function useMealPlan(constraint: string): ReturnTypes {
     const [mealPlan, setMealPlan] = useState<MealPlanEntry[]>([]);
 
     function parseMealPlanData(data: MealPlanAPIData | null = null): MealPlanEntry[] {
@@ -34,10 +34,10 @@ export function useMealPlan(constraint): ReturnTypes {
     useEffect(() => {
         const startOfThisWeek = moment().startOf("isoWeek").format("X");
         const endOfThisWeek = moment().endOf("isoWeek").format("X");
-        const startOfNextWeek = moment.unix(endOfThisWeek).add(1).format("X");
-        const endOfLastWeek = moment.unix(startOfThisWeek).subtract(1).format("X");
+        const startOfNextWeek = moment.unix(parseInt(endOfThisWeek, 10)).add(1).format("X");
+        const endOfLastWeek = moment.unix(parseInt(startOfThisWeek, 10)).subtract(1).format("X");
 
-        let onValueChange;
+        let onValueChange: (a: firebase.database.DataSnapshot, b?: string | null | undefined) => void;
 
         switch (constraint) {
         case "This Week":

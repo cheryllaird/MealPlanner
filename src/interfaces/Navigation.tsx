@@ -1,7 +1,7 @@
 import { Recipe } from "./Recipes";
 
 export type RecipeRootStackParamList = {
-    "Recipe List": undefined;
+    "Recipes": undefined;
     "Recipe Detail": {
         recipe: Recipe
     };

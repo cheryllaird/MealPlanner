@@ -4,9 +4,11 @@ import {
     SectionList,
     Text,
 } from "react-native";
+import { RouteProp } from "@react-navigation/native";
 import moment from "moment";
 import ramenImage from "../../assets/ramen.png";
 import { theme } from "../theme";
+import { MealPlanWeekStackParamList } from "../interfaces/Navigation";
 import { RecipeSummary } from "../recipes/RecipeSummary";
 import { Placeholder } from "../components/Placeholder";
 import { useMealPlan } from "./useMealPlan";
@@ -21,7 +23,16 @@ const styles = StyleSheet.create({
     },
 });
 
-export function MealPlanList({ route }): React.ReactElement {
+type MealPlanRouteProp = RouteProp<
+    MealPlanWeekStackParamList,
+    "This Week" | "Upcoming" | "Past"
+>;
+
+type Props = {
+    route: MealPlanRouteProp;
+};
+
+export function MealPlanList({ route }: Props): React.ReactElement {
     const { mealPlan } = useMealPlan(route.name);
 
     if (!mealPlan.length) {
@@ -34,17 +45,17 @@ export function MealPlanList({ route }): React.ReactElement {
         );
     }
 
-    function renderHeader(date:string) {
-        let day;
+    function renderHeader(timestamp:string) {
+        let day: string;
 
         switch (route.name) {
-            case "This Week":
-                day = moment.unix(date).format("dddd");
-                break;
+        case "This Week":
+            day = moment.unix(parseInt(timestamp, 10)).format("dddd");
+            break;
 
-            default:
-                day = moment.unix(date).format("dddd, Do MMM YYYY");
-                break;
+        default:
+            day = moment.unix(parseInt(timestamp, 10)).format("dddd, Do MMM YYYY");
+            break;
         }
 
         return (
