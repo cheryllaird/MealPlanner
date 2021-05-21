@@ -4,8 +4,11 @@ import {
     SectionList,
     Text,
 } from "react-native";
+import { RouteProp } from "@react-navigation/native";
+import moment from "moment";
 import ramenImage from "../../assets/ramen.png";
 import { theme } from "../theme";
+import { MealPlanWeekStackParamList } from "../interfaces/Navigation";
 import { RecipeSummary } from "../recipes/RecipeSummary";
 import { Placeholder } from "../components/Placeholder";
 import { useMealPlan } from "./useMealPlan";
@@ -13,15 +16,24 @@ import { useMealPlan } from "./useMealPlan";
 const styles = StyleSheet.create({
     heading: {
         alignItems: "center",
-        backgroundColor: theme.PRIMARY,
+        backgroundColor: theme.BACKGROUND_ACCENT,
         flexDirection: "row",
         justifyContent: "space-between",
         padding: 10,
     },
 });
 
-export function MealPlanList(): React.ReactElement {
-    const { mealPlan } = useMealPlan();
+type MealPlanRouteProp = RouteProp<
+    MealPlanWeekStackParamList,
+    "This Week" | "Upcoming" | "Past"
+>;
+
+type Props = {
+    route: MealPlanRouteProp;
+};
+
+export function MealPlanList({ route }: Props): React.ReactElement {
+    const { mealPlan } = useMealPlan(route.name);
 
     if (!mealPlan.length) {
         return (
@@ -33,15 +45,31 @@ export function MealPlanList(): React.ReactElement {
         );
     }
 
+    function renderHeader(timestamp:string) {
+        let day: string;
+
+        switch (route.name) {
+        case "This Week":
+            day = moment.unix(parseInt(timestamp, 10)).format("dddd");
+            break;
+
+        default:
+            day = moment.unix(parseInt(timestamp, 10)).format("dddd, Do MMM YYYY");
+            break;
+        }
+
+        return (
+            <Text style={styles.heading}>{day}</Text>
+        );
+    }
+
     return (
         <>
             <SectionList
                 sections={mealPlan}
                 keyExtractor={(item, index) => `${item.id}.${index}`}
                 renderItem={({ item }) => <RecipeSummary recipe={item} />}
-                renderSectionHeader={({ section: { title } }) => (
-                    <Text style={styles.heading}>{title}</Text>
-                )}
+                renderSectionHeader={({ section: { title } }) => renderHeader(title)}
             />
         </>
     );
