@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         width: 250,
     },
     message: {
-        color: theme.LIGHT_TEXT,
+        color: theme.TEXT_ACCENT,
         fontSize: 16,
         marginBottom: 40,
     },

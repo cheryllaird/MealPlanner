@@ -1,13 +1,43 @@
 import React from "react";
 import {
-    FlatList,
+    StyleSheet,
+    Animated,
 } from "react-native";
+import { useCollapsibleHeader } from "react-navigation-collapsible";
 import searchImage from "../../assets/search.png";
 import { Placeholder } from "../components/Placeholder";
+import { theme } from "../theme";
 import { RecipeSummary } from "./RecipeSummary";
+import { RecipesHeader } from "./RecipesHeader";
+import { SearchBox } from "./SearchBox";
 import { useRecipes } from "./useRecipes";
 
+const styles = StyleSheet.create({
+    searchContainer: {
+        alignItems: "center",
+        backgroundColor: theme.BACKGROUND,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: 30,
+        paddingVertical: 10,
+        position: "absolute",
+        width: "100%",
+    },
+});
+
 export function RecipeList(): React.ReactElement {
+    const options = {
+        navigationOptions: {
+            header: () => <RecipesHeader />, // eslint-disable-line react/display-name
+        },
+    };
+    const {
+        onScroll,
+        translateY,
+        containerPaddingTop,
+        scrollIndicatorInsetTop,
+    } = useCollapsibleHeader(options);
+
     const {
         recipes,
         isLoading,
@@ -38,13 +68,37 @@ export function RecipeList(): React.ReactElement {
         );
     }
 
-    const recipesWithId = Object.keys(recipes).map((id) => ({ ...recipes[id], id }));
+    let recipesWithId = Object.keys(recipes).map((id) => ({ ...recipes[id], id }));
+    recipesWithId = [
+        ...recipesWithId,
+        ...recipesWithId,
+        ...recipesWithId,
+        ...recipesWithId,
+        ...recipesWithId,
+    ];
+
+    const searchContainerHeight = 65;
 
     return (
-        <FlatList
-            data={recipesWithId}
-            renderItem={({ item }) => <RecipeSummary recipe={item} />}
-            keyExtractor={(item) => item.title}
-        />
+        <>
+            <Animated.FlatList
+                onScroll={onScroll}
+                contentContainerStyle={{ paddingTop: containerPaddingTop + searchContainerHeight }}
+                scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}
+                data={recipesWithId}
+                renderItem={({ item }) => <RecipeSummary recipe={item} />}
+                keyExtractor={(item) => item.title}
+            />
+
+            <Animated.View
+                style={[styles.searchContainer, {
+                    transform: [{ translateY }],
+                    top: containerPaddingTop,
+                    height: searchContainerHeight,
+                }]}
+            >
+                <SearchBox />
+            </Animated.View>
+        </>
     );
 }

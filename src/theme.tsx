@@ -1,7 +1,12 @@
 export const theme = {
-    PRIMARY: "yellow",
+    PRIMARY: "#FFC000",
+    PRIMARY_ACCENT: "#FFD659",
+    PRIMARY_CONTRAST: "#1C1C1C",
     BACKGROUND: "#FFFFFF",
     BACKGROUND_ACCENT: "#EEEEEE",
+    BACKGROUND_CONTRAST: "#1C1C1C",
+    TEXT: "#1C1C1C",
+    TEXT_ACCENT: "#9e9e9e",
+    TEXT_CONTRAST: "#FFFFFF",
     BORDER: "#E0E0E0",
-    LIGHT_TEXT: "#9e9e9e",
 };
