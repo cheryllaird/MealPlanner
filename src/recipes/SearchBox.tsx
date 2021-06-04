@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     },
 });
 
+// @TODO implement search
 export function SearchBox(): React.ReactElement {
     return (
         <View style={styles.searchBox}>

@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Animated,
 } from "react-native";
-import { disableExpoTranslucentStatusBar, useCollapsibleHeader } from "react-navigation-collapsible";
+import { useCollapsibleHeader } from "react-navigation-collapsible";
 import searchImage from "../../assets/search.png";
 import { Placeholder } from "../components/Placeholder";
 import { theme } from "../theme";
@@ -11,8 +11,6 @@ import { RecipeSummary } from "./RecipeSummary";
 import { RecipesHeader } from "./RecipesHeader";
 import { SearchBox } from "./SearchBox";
 import { useRecipes } from "./useRecipes";
-
-disableExpoTranslucentStatusBar();
 
 const styles = StyleSheet.create({
     searchContainer: {
