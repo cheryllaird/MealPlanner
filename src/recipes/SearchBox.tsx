@@ -4,7 +4,7 @@ import {
     View,
     StyleSheet,
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons"; // eslint-disable-line import/no-extraneous-dependencies
 import { theme } from "../theme";
 
 const styles = StyleSheet.create({

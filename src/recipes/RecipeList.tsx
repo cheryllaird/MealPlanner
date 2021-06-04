@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 export function RecipeList(): React.ReactElement {
     const options = {
         navigationOptions: {
-            header: () => <RecipesHeader />,
+            header: () => <RecipesHeader />, // eslint-disable-line react/display-name
         },
     };
     const {
