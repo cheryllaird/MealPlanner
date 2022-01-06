@@ -3625,6 +3625,11 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.5.tgz#7fdec6a28a67ae18647c51668a9ff95bb2fa7bb8"
   integrity sha512-uVDi8LpBUKQj6sdxNaTetL6FpeCqTjOvAQuQUa/qAqq8oOd4ivkbhgnqayl0dnPal8Tb/yB1tF+gOvCBiicaiQ==
 
+ctx-polyfill@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/ctx-polyfill/-/ctx-polyfill-1.1.4.tgz#08420bc5c540d08ac36d05720ca503c65e302d65"
+  integrity sha1-CEILxcVA0IrDbQVyDKUDxl4wLWU=
+
 damerau-levenshtein@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.6.tgz#143c1641cb3d85c60c32329e26899adea8701791"
@@ -3958,15 +3963,15 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-string-regexp@2.0.0, escape-string-regexp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-
-escape-string-regexp@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
-  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^4.0.0:
   version "4.0.0"
@@ -4286,6 +4291,14 @@ expo-font@~8.4.0:
   dependencies:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
+
+expo-image-picker@~9.2.0:
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-9.2.1.tgz#113a46bfc8ef9bf675e8700b1bf7b8472f4de516"
+  integrity sha512-IPrBY7+zgxUUZqjtLVfj+PTKMm6lmI48Z9b8BKJhY/gF49g/cDZwWN0mrg+3G3a3ug5TtIr+pektsNWp1V+T1g==
+  dependencies:
+    expo-permissions "~10.0.0"
+    uuid "7.0.2"
 
 expo-keep-awake@~8.4.0:
   version "8.4.0"
@@ -5167,7 +5180,7 @@ internal-slot@^1.0.2:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-invariant@^2.2.2, invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -7172,6 +7185,13 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
+react-native-canvas@^0.1.38:
+  version "0.1.38"
+  resolved "https://registry.yarnpkg.com/react-native-canvas/-/react-native-canvas-0.1.38.tgz#d2d76f1a105cd4711792271f265b72bd5699acf0"
+  integrity sha512-DjtN921PKoa2liYF8hKq1263xg2o47Bj/1E/+l75GPicT2RV/x/Y1HBrLvFVCR3OO+UslXEC5BtRjfxDoh/Bug==
+  dependencies:
+    ctx-polyfill "^1.1.4"
+
 react-native-gesture-handler@~1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
@@ -7210,6 +7230,11 @@ react-native-tab-view@2.16.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.16.0.tgz#cae72c7084394bd328fac5fefb86cd966df37a86"
   integrity sha512-ac2DmT7+l13wzIFqtbfXn4wwfgtPoKzWjjZyrK1t+T8sdemuUvD4zIt+UImg03fu3s3VD8Wh/fBrIdcqQyZJWg==
 
+react-native-uuid@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-uuid/-/react-native-uuid-2.0.1.tgz#ed4e2dfb1683eddb66967eb5dca140dfe1abddb9"
+  integrity sha512-cptnoIbL53GTCrWlb/+jrDC6tvb7ypIyzbXNJcpR3Vab0mkeaaVd5qnB3f0whXYzS+SMoSQLcUUB0gEWqkPC0g==
+
 react-native-vector-icons@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
@@ -7238,6 +7263,14 @@ react-native-web@~0.13.12:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
+
+react-native-webview@^11.14.2:
+  version "11.14.2"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.14.2.tgz#31e62864b28f950fd887bf20469fe8cd71101d29"
+  integrity sha512-4pRLskbu98xmC8q+YY9cfshSxhywVran+tQ0ou7V6Js0ye2Zb33dDpe6d7QUWD39w5LbYSI3knpxLLVDAVm0hA==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 "react-native@https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz":
   version "0.63.2"
@@ -8456,6 +8489,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
+  integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
 
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
