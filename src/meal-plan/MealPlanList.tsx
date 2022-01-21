@@ -45,16 +45,16 @@ export function MealPlanList({ route }: Props): React.ReactElement {
         );
     }
 
-    function renderHeader(timestamp:string) {
+    function renderHeader(date:string) {
         let day: string;
 
         switch (route.name) {
         case "This Week":
-            day = moment.unix(parseInt(timestamp, 10)).format("dddd");
+            day = moment(date).format("dddd");
             break;
 
         default:
-            day = moment.unix(parseInt(timestamp, 10)).format("dddd, Do MMM YYYY");
+            day = moment(date).format("dddd, Do MMM YYYY");
             break;
         }
 
@@ -67,7 +67,7 @@ export function MealPlanList({ route }: Props): React.ReactElement {
         <>
             <SectionList
                 sections={mealPlan}
-                keyExtractor={(item, index) => `${item.id}.${index}`}
+                keyExtractor={(item, index) => `${item.date}.${index}`}
                 renderItem={({ item }) => <RecipeSummary recipe={item} />}
                 renderSectionHeader={({ section: { title } }) => renderHeader(title)}
             />

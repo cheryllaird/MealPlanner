@@ -24,18 +24,17 @@ export function useMealPlan(constraint: string): ReturnTypes {
 
     function parseMealPlanData(data: MealPlanAPIData | null = null): MealPlanEntry[] {
         if (data === null) return [];
-
         return Object.entries(data).map(([date, recipesData]) => ({
             title: date,
-            data: Object.values(recipesData),
+            data: Object.values(recipesData).map((d) => ({ ...d, date })),
         }));
     }
 
     useEffect(() => {
-        const startOfThisWeek = moment().startOf("isoWeek").format("X");
-        const endOfThisWeek = moment().endOf("isoWeek").format("X");
-        const startOfNextWeek = moment.unix(parseInt(endOfThisWeek, 10)).add(1).format("X");
-        const endOfLastWeek = moment.unix(parseInt(startOfThisWeek, 10)).subtract(1).format("X");
+        const startOfThisWeek = moment().startOf("isoWeek").format("YYYYMMDD");
+        const endOfThisWeek = moment().endOf("isoWeek").format("YYYYMMDD");
+        const startOfNextWeek = moment(endOfThisWeek).add(1).format("YYYYMMDD");
+        const endOfLastWeek = moment(startOfThisWeek).subtract(1).format("YYYYMMDD");
 
         let onValueChange: (a: firebase.database.DataSnapshot, b?: string | null | undefined) => void;
 

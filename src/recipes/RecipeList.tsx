@@ -70,15 +70,7 @@ export function RecipeList(): React.ReactElement {
         );
     }
 
-    let recipesWithId = Object.keys(recipes).map((id) => ({ ...recipes[id], id }));
-    recipesWithId = [
-        ...recipesWithId,
-        ...recipesWithId,
-        ...recipesWithId,
-        ...recipesWithId,
-        ...recipesWithId,
-    ];
-
+    const recipesWithId = Object.keys(recipes).map((id) => ({ ...recipes[id], id }));
     const searchContainerHeight = 65;
 
     return (

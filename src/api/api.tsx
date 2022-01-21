@@ -18,7 +18,7 @@ export function resetTestData(): void {
 }
 
 export function addToMealPlan(date: Date, recipeId: string): void {
-    const formattedDate = moment(date).format("X");
+    const formattedDate = moment(date).format("YYYYMMDD");
     const mealPlan = firebase.database().ref(`/users/${USER_ID}/meal-plan/${formattedDate}`);
     const updatedMealPlan = mealPlan.push();
     firebase.database().ref(`/recipes/${recipeId}`).once("value", (recipeData) => {
